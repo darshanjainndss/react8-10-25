@@ -17,8 +17,10 @@ const putUser=(req,res)=>{
     res.send(user)
 }
 const deleteUser=(req,res)=>{
-    const id=req.params.id;
-    user.splice(id,1);
+    const data= user.find((u)=>u.id==req.params.id)
+    const index=user.indexOf(data)
+    user.splice(index,1)
     res.send(user)
+ 
 }
 export {getUser,addUser,putUser,deleteUser};
