@@ -6,6 +6,7 @@ import crypto from "crypto"
 import fs from "fs"
 
 const app= express()
+app.use(express.json())
 app.listen(3000,(req,res)=>{
     
     console.log("server is running at 3000")
@@ -35,3 +36,9 @@ read.on('data',(chunk)=>{
 read.on('end',()=>{
     console.log('file ended')
 })
+
+//////////////////////////
+import userroute from './routes/userroute.js'
+app.use('/user',userroute)
+
+//////////////////////////
